@@ -19,39 +19,49 @@ font-family:'Segoe UI',Arial,sans-serif;
 
 body{
 min-height:100vh;
-background: radial-gradient(circle at top,#2b0030,#050005,#000000);
 color:#f5f5f5;
 overflow-x:hidden;
+position:relative;
 }
+
+/* GIF DE FUNDO */
 
 body::before{
 content:"";
 position:fixed;
 inset:0;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(160,60,255,0.12),
-transparent
-);
-animation:glow 8s infinite alternate;
-pointer-events:none;
+background:
+linear-gradient(rgba(5,0,10,0.75),rgba(5,0,10,0.9)),
+url("k.gif");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+z-index:-2;
 }
 
-@keyframes glow{
-from{opacity:.3;}
-to{opacity:.8;}
+/* GRADIENTE ROXO */
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle at top,
+rgba(140,0,255,0.35),
+rgba(0,0,0,0.85));
+z-index:-1;
 }
+
+/* HEADER */
 
 header{
-padding:80px 20px 60px;
+padding:120px 20px 80px;
 text-align:center;
 }
 
 .logo{
-width:260px;
+width:250px;
 margin:0 auto 20px;
-filter:drop-shadow(0 0 45px rgba(160,60,255,.65));
+filter:drop-shadow(0 0 45px rgba(160,60,255,.7));
 animation:float 6s ease-in-out infinite;
 }
 
@@ -64,17 +74,18 @@ animation:float 6s ease-in-out infinite;
 header h1{
 font-size:3.4rem;
 letter-spacing:4px;
-margin-top:5px;
-background:linear-gradient(90deg,#ff1a1a,#c300ff);
+background:linear-gradient(90deg,#ff2a2a,#b400ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 header p{
 margin-top:10px;
-font-size:1.15rem;
+font-size:1.1rem;
 color:#d1d1d1;
 }
+
+/* MENU */
 
 nav{
 margin-top:25px;
@@ -96,8 +107,8 @@ left:50%;
 bottom:-8px;
 width:0;
 height:2px;
-background:linear-gradient(90deg,#ff1a1a,#c300ff);
-transition:.4s;
+background:linear-gradient(90deg,#ff2a2a,#b400ff);
+transition:.35s;
 transform:translateX(-50%);
 }
 
@@ -105,18 +116,18 @@ nav a:hover::after{
 width:100%;
 }
 
+/* SEÇÕES */
+
 section{
 max-width:1100px;
 margin:auto;
 padding:90px 20px;
 }
 
-/* animação */
-
 .reveal{
 opacity:0;
 transform:translateY(40px);
-transition:all .8s ease;
+transition:.8s;
 }
 
 .reveal.active{
@@ -125,54 +136,20 @@ transform:translateY(0);
 }
 
 h2{
-font-size:2.3rem;
+font-size:2.2rem;
 margin-bottom:30px;
-background:linear-gradient(90deg,#ff1a1a,#c300ff);
+background:linear-gradient(90deg,#ff2a2a,#b400ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
 .sobre p{
-max-width:850px;
+max-width:800px;
 font-size:1.1rem;
 color:#e0e0e0;
 }
 
-.projetos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:35px;
-}
-
-.card{
-background:linear-gradient(160deg,#0b0010,#120000);
-padding:35px;
-border-radius:18px;
-border:1px solid rgba(160,60,255,.2);
-transition:transform .4s,box-shadow .4s;
-}
-
-.card:hover{
-transform:translateY(-12px) scale(1.02);
-box-shadow:0 0 40px rgba(160,60,255,.35);
-}
-
-.card a{
-text-decoration:none;
-color:inherit;
-display:block;
-}
-
-.card h3{
-font-size:1.4rem;
-margin-bottom:12px;
-color:#c77dff;
-}
-
-.card p{
-font-size:1rem;
-color:#d4d4d4;
-}
+/* VIDEO */
 
 .video-container{
 margin-top:40px;
@@ -184,26 +161,30 @@ justify-content:center;
 width:900px;
 max-width:100%;
 height:500px;
-border-radius:15px;
-box-shadow:0 0 40px rgba(160,60,255,.4);
+border-radius:18px;
+box-shadow:0 15px 60px rgba(180,0,255,.35);
+transition:.35s;
 }
+
+.video-container iframe:hover{
+transform:scale(1.03);
+}
+
+/* CONTATO */
 
 .contato a{
 display:inline-block;
 margin:15px 25px 0 0;
-color:#c300ff;
+color:#b400ff;
 text-decoration:none;
 font-weight:bold;
-letter-spacing:1px;
 }
 
 footer{
 text-align:center;
-padding:35px 20px;
-background:#000;
-color:#999;
+padding:35px;
+color:#888;
 font-size:.9rem;
-letter-spacing:1px;
 }
 
 </style>
@@ -213,14 +194,13 @@ letter-spacing:1px;
 
 <header class="reveal">
 
-<img src="oc.png" alt="OC Cal3ngo" class="logo">
+<img src="oc.png" class="logo">
 
 <h1>CAL3NGO</h1>
-<p>Editor de Vídeo • Motion Designer • Visual Cinematográfico</p>
+<p>Editor de Vídeo • Motion Designer</p>
 
 <nav>
 <a href="#sobre">Sobre</a>
-<a href="#projetos">Trabalhos</a>
 <a href="#motion">Motion</a>
 <a href="#gameplay">Gameplay</a>
 <a href="#contato">Contato</a>
@@ -230,57 +210,21 @@ letter-spacing:1px;
 
 <section id="sobre" class="sobre reveal">
 
-<h2>Quem sou eu</h2>
+<h2>Sobre</h2>
 
 <p>
-Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico…
-mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede. No geral: corto vídeo, coloco efeito e tento deixar tudo menos sem graça.
+Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico…  
+mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 </p>
-
-</section>
-
-<section id="projetos" class="reveal">
-
-<h2>Trabalhos & Motion</h2>
-
-<div class="projetos">
-
-<div class="card reveal">
-<h3>Edição Cinematográfica</h3>
-<p>Vídeos com estética forte, ritmo preciso e storytelling visual.</p>
-</div>
-
-<div class="card reveal">
-<a href="#motion">
-<h3>Motion Graphics</h3>
-<p>Clique para ver meu motion.</p>
-</a>
-</div>
-
-<div class="card reveal">
-<a href="#gameplay">
-<h3>Gameplay</h3>
-<p>Clique para ver meu gameplay.</p>
-</a>
-</div>
-
-</div>
 
 </section>
 
 <section id="motion" class="reveal">
 
-<h2>Motion Graphics</h2>
+<h2>Motion</h2>
 
 <div class="video-container">
-
-<iframe
-src="https://www.youtube.com/embed/Nt0ATOS8zdY"
-title="Motion Graphics"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
+<iframe src="https://www.youtube.com/embed/Nt0ATOS8zdY" allowfullscreen></iframe>
 </div>
 
 </section>
@@ -290,14 +234,7 @@ allowfullscreen>
 <h2>Gameplay</h2>
 
 <div class="video-container">
-
-<iframe
-src="https://www.youtube.com/embed/UC_jB999HI8"
-title="Gameplay"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
+<iframe src="https://www.youtube.com/embed/UC_jB999HI8" allowfullscreen></iframe>
 </div>
 
 </section>
@@ -306,35 +243,29 @@ allowfullscreen>
 
 <h2>Contato</h2>
 
-<p>Bora criar algo fora da curva?</p>
-
-<br>
-
 <a href="https://www.instagram.com/cal3ngo.editor/" target="_blank">Instagram</a>
 <a href="https://www.behance.net/cal3ngo" target="_blank">Behance</a>
 <a href="https://www.youtube.com/@cal3ngo" target="_blank">YouTube</a>
 
 </section>
 
-<footer class="reveal">
-
-<p>© 2026 • Portfólio de Cal3ngo</p>
-
+<footer>
+© 2026 • Cal3ngo
 </footer>
 
 <script>
 
 function reveal(){
 
-var reveals = document.querySelectorAll(".reveal");
+var reveals=document.querySelectorAll(".reveal");
 
 for(var i=0;i<reveals.length;i++){
 
-var windowHeight = window.innerHeight;
-var elementTop = reveals[i].getBoundingClientRect().top;
-var elementVisible = 100;
+var windowHeight=window.innerHeight;
+var elementTop=reveals[i].getBoundingClientRect().top;
+var elementVisible=100;
 
-if(elementTop < windowHeight - elementVisible){
+if(elementTop<windowHeight-elementVisible){
 reveals[i].classList.add("active");
 }
 
@@ -342,8 +273,7 @@ reveals[i].classList.add("active");
 
 }
 
-window.addEventListener("scroll", reveal);
-
+window.addEventListener("scroll",reveal);
 reveal();
 
 </script>
