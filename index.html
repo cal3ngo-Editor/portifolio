@@ -10,138 +10,138 @@ html{
 scroll-behavior:smooth;
 }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Segoe UI', Arial, sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',Arial,sans-serif;
 }
 
-body {
-min-height: 100vh;
-background: radial-gradient(circle at top, #2b0030, #050005, #000000);
-color: #f5f5f5;
-overflow-x: hidden;
+body{
+min-height:100vh;
+background:radial-gradient(circle at top,#2b0030,#050005,#000000);
+color:#f5f5f5;
+overflow-x:hidden;
 }
 
-body::before {
-content: "";
-position: fixed;
-inset: 0;
-background: linear-gradient(
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:linear-gradient(
 120deg,
 transparent,
-rgba(160, 60, 255, 0.12),
+rgba(160,60,255,0.12),
 transparent
 );
-animation: glow 8s infinite alternate;
-pointer-events: none;
+animation:glow 8s infinite alternate;
+pointer-events:none;
 }
 
-@keyframes glow {
-from { opacity: 0.3; }
-to { opacity: 0.8; }
+@keyframes glow{
+from{opacity:.3;}
+to{opacity:.8;}
 }
 
-header {
-padding: 80px 20px 60px;
-text-align: center;
+header{
+padding:80px 20px 60px;
+text-align:center;
 }
 
-.logo {
-width: 260px;
-margin: 0 auto 20px;
-filter: drop-shadow(0 0 45px rgba(160, 60, 255, 0.65));
-animation: float 6s ease-in-out infinite;
+.logo{
+width:200px;
+margin:0 auto 20px;
+filter:drop-shadow(0 0 45px rgba(160,60,255,.65));
+animation:float 6s ease-in-out infinite;
 }
 
-@keyframes float {
-0% { transform: translateY(0); }
-50% { transform: translateY(-12px); }
-100% { transform: translateY(0); }
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0);}
 }
 
-header h1 {
-font-size: 3.4rem;
-letter-spacing: 4px;
-margin-top: 5px;
-background: linear-gradient(90deg, #ff1a1a, #c300ff);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+header h1{
+font-size:3.4rem;
+letter-spacing:4px;
+margin-top:5px;
+background:linear-gradient(90deg,#ff1a1a,#c300ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-header p {
-margin-top: 10px;
-font-size: 1.15rem;
-color: #d1d1d1;
+header p{
+margin-top:10px;
+font-size:1.15rem;
+color:#d1d1d1;
 }
 
-nav {
-margin-top: 25px;
+nav{
+margin-top:25px;
 }
 
-nav a {
-color: #f5f5f5;
-margin: 0 18px;
-text-decoration: none;
-font-weight: 600;
-letter-spacing: 1px;
-position: relative;
+nav a{
+color:#f5f5f5;
+margin:0 18px;
+text-decoration:none;
+font-weight:600;
+letter-spacing:1px;
+position:relative;
 }
 
-nav a::after {
-content: "";
-position: absolute;
-left: 50%;
-bottom: -8px;
-width: 0;
-height: 2px;
-background: linear-gradient(90deg, #ff1a1a, #c300ff);
-transition: 0.4s;
-transform: translateX(-50%);
+nav a::after{
+content:"";
+position:absolute;
+left:50%;
+bottom:-8px;
+width:0;
+height:2px;
+background:linear-gradient(90deg,#ff1a1a,#c300ff);
+transition:.4s;
+transform:translateX(-50%);
 }
 
-nav a:hover::after {
-width: 100%;
+nav a:hover::after{
+width:100%;
 }
 
-section {
-max-width: 1100px;
-margin: auto;
-padding: 90px 20px;
+section{
+max-width:1100px;
+margin:auto;
+padding:90px 20px;
 }
 
-h2 {
-font-size: 2.3rem;
-margin-bottom: 30px;
-background: linear-gradient(90deg, #ff1a1a, #c300ff);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+h2{
+font-size:2.3rem;
+margin-bottom:30px;
+background:linear-gradient(90deg,#ff1a1a,#c300ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.sobre p {
-max-width: 850px;
-font-size: 1.1rem;
-color: #e0e0e0;
+.sobre p{
+max-width:850px;
+font-size:1.1rem;
+color:#e0e0e0;
 }
 
-.projetos {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 35px;
+.projetos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
 }
 
-.card {
-background: linear-gradient(160deg, #0b0010, #120000);
-padding: 35px;
-border-radius: 18px;
-border: 1px solid rgba(160, 60, 255, 0.2);
-transition: transform 0.4s, box-shadow 0.4s;
+.card{
+background:linear-gradient(160deg,#0b0010,#120000);
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(160,60,255,.2);
+transition:transform .4s,box-shadow .4s;
 }
 
-.card:hover {
-transform: translateY(-12px) scale(1.02);
-box-shadow: 0 0 40px rgba(160, 60, 255, 0.35);
+.card:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 0 40px rgba(160,60,255,.35);
 }
 
 .card a{
@@ -150,15 +150,15 @@ color:inherit;
 display:block;
 }
 
-.card h3 {
-font-size: 1.4rem;
-margin-bottom: 12px;
-color: #c77dff;
+.card h3{
+font-size:1.4rem;
+margin-bottom:12px;
+color:#c77dff;
 }
 
-.card p {
-font-size: 1rem;
-color: #d4d4d4;
+.card p{
+font-size:1rem;
+color:#d4d4d4;
 }
 
 .video-container{
@@ -172,25 +172,25 @@ width:900px;
 max-width:100%;
 height:500px;
 border-radius:15px;
-box-shadow:0 0 40px rgba(160,60,255,0.4);
+box-shadow:0 0 40px rgba(160,60,255,.4);
 }
 
-.contato a {
-display: inline-block;
-margin: 15px 25px 0 0;
-color: #c300ff;
-text-decoration: none;
-font-weight: bold;
-letter-spacing: 1px;
+.contato a{
+display:inline-block;
+margin:15px 25px 0 0;
+color:#c300ff;
+text-decoration:none;
+font-weight:bold;
+letter-spacing:1px;
 }
 
-footer {
-text-align: center;
-padding: 35px 20px;
-background: #000000;
-color: #999999;
-font-size: 0.9rem;
-letter-spacing: 1px;
+footer{
+text-align:center;
+padding:35px 20px;
+background:#000;
+color:#999;
+font-size:.9rem;
+letter-spacing:1px;
 }
 
 </style>
@@ -226,7 +226,7 @@ Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer. Faço ediçõe
 
 <section id="projetos">
 
-<h2>Trabalhos & Motion</h2>
+<h2>Trabalhos</h2>
 
 <div class="projetos">
 
