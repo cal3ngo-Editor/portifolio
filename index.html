@@ -54,6 +54,10 @@ z-index:-1;
 header{
 padding:120px 20px 80px;
 text-align:center;
+
+transform:scale(1.06);
+transition:transform 0.25s ease-out;
+will-change: transform;
 }
 
 .logo{
@@ -69,32 +73,21 @@ animation:float 6s ease-in-out infinite;
 100%{transform:translateY(0);}
 }
 
-/* TÍTULO BONITO */
-
 header h1{
 font-size:3.4rem;
 letter-spacing:4px;
-
-/* gradient animado */
 background:linear-gradient(90deg,#ff2a2a,#b400ff,#ff2a2a);
 background-size:200%;
-
-/* aplica no texto */
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
-/* animação */
-animation:gradientMove 6s linear infinite,
-glowPulse 3s ease-in-out infinite;
+animation:gradientMove 6s linear infinite, glowPulse 3s ease-in-out infinite;
 }
 
-/* animação gradient */
 @keyframes gradientMove{
 0%{background-position:0%;}
 100%{background-position:200%;}
 }
 
-/* glow suave */
 @keyframes glowPulse{
 0%{
 text-shadow:0 0 10px rgba(255,0,100,0.4),
@@ -155,6 +148,13 @@ margin:auto;
 padding:90px 20px;
 }
 
+/* 🔥 AJUSTE FINAL */
+#sobre{
+margin-top:40px;
+opacity:0;
+}
+
+/* reveal padrão */
 .reveal{
 opacity:0;
 transform:translateY(40px);
@@ -308,9 +308,7 @@ font-size:.9rem;
 <body>
 
 <header class="reveal">
-
 <img src="oc.png" class="logo">
-
 <h1>CAL3NGO</h1>
 <p>Editor de Vídeo • Motion Designer</p>
 
@@ -324,19 +322,15 @@ font-size:.9rem;
 
 </header>
 
-<section id="sobre" class="sobre reveal">
-
+<section id="sobre" class="sobre">
 <h2>Sobre</h2>
-
 <p>
 Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico…  
 mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 </p>
-
 </section>
 
 <section id="trabalhos" class="reveal">
-
 <h2>Trabalhos</h2>
 
 <div class="projetos">
@@ -424,8 +418,41 @@ reveals[i].classList.add("active");
 }
 }
 
-window.addEventListener("scroll",reveal);
+/* 🔥 fade começa mais cedo */
+function sobreFade(){
+const sobre = document.getElementById("sobre");
+
+let rect = sobre.getBoundingClientRect();
+let windowHeight = window.innerHeight;
+
+let progress = (windowHeight - rect.top) / (windowHeight * 0.3);
+
+progress = Math.max(0, Math.min(progress, 1));
+
+sobre.style.opacity = progress;
+}
+
+function heroZoom(){
+const header = document.querySelector("header");
+
+let scroll = window.scrollY;
+let maxScroll = 120;
+let progress = Math.min(scroll / maxScroll, 1);
+
+let scale = 1.06 - (progress * 0.06);
+
+header.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("scroll", () => {
 reveal();
+heroZoom();
+sobreFade();
+});
+
+reveal();
+heroZoom();
+sobreFade();
 
 </script>
 
