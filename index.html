@@ -2,6 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+
+<!-- 🔥 ESSENCIAL PRA MOBILE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cal3ngo | Editor & Motion Designer</title>
 
 <style>
@@ -54,10 +58,8 @@ z-index:-1;
 header{
 padding:120px 20px 80px;
 text-align:center;
-
 transform:scale(1.06);
 transition:transform 0.25s ease-out;
-will-change: transform;
 }
 
 .logo{
@@ -67,12 +69,6 @@ filter:drop-shadow(0 0 45px rgba(160,60,255,.7));
 animation:float 6s ease-in-out infinite;
 }
 
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-12px);}
-100%{transform:translateY(0);}
-}
-
 header h1{
 font-size:3.4rem;
 letter-spacing:4px;
@@ -80,27 +76,6 @@ background:linear-gradient(90deg,#ff2a2a,#b400ff,#ff2a2a);
 background-size:200%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:gradientMove 6s linear infinite, glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes gradientMove{
-0%{background-position:0%;}
-100%{background-position:200%;}
-}
-
-@keyframes glowPulse{
-0%{
-text-shadow:0 0 10px rgba(255,0,100,0.4),
-0 0 20px rgba(180,0,255,0.3);
-}
-50%{
-text-shadow:0 0 25px rgba(255,0,100,0.7),
-0 0 45px rgba(180,0,255,0.6);
-}
-100%{
-text-shadow:0 0 10px rgba(255,0,100,0.4),
-0 0 20px rgba(180,0,255,0.3);
-}
 }
 
 header p{
@@ -120,24 +95,6 @@ color:#f5f5f5;
 margin:0 18px;
 text-decoration:none;
 font-weight:600;
-letter-spacing:1px;
-position:relative;
-}
-
-nav a::after{
-content:"";
-position:absolute;
-left:50%;
-bottom:-8px;
-width:0;
-height:2px;
-background:linear-gradient(90deg,#ff2a2a,#b400ff);
-transition:.35s;
-transform:translateX(-50%);
-}
-
-nav a:hover::after{
-width:100%;
 }
 
 /* SEÇÕES */
@@ -148,12 +105,11 @@ margin:auto;
 padding:90px 20px;
 }
 
-/* 🔥 SOBRE AGORA CORRETO */
 #sobre{
 margin-top:40px;
 }
 
-/* reveal padrão */
+/* reveal */
 
 .reveal{
 opacity:0;
@@ -170,12 +126,7 @@ h2{
 font-size:2.2rem;
 margin-bottom:40px;
 text-align:center;
-background:linear-gradient(90deg,#ff2a2a,#b400ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 }
-
-/* SOBRE */
 
 .sobre h2{
 text-align:left;
@@ -184,8 +135,6 @@ text-align:left;
 .sobre p{
 max-width:800px;
 font-size:1.1rem;
-color:#e0e0e0;
-text-align:left;
 }
 
 /* CARDS */
@@ -194,106 +143,85 @@ text-align:left;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
-margin-top:40px;
-}
-
-.card{
-display:block;
-text-decoration:none;
-color:inherit;
-background:linear-gradient(160deg,#0b0010,#120000);
-padding:35px;
-border-radius:18px;
-border:1px solid rgba(160,60,255,.2);
-transition:.35s;
-text-align:center;
-cursor:pointer;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 45px rgba(160,60,255,.35);
-}
-
-.card h3{
-font-size:1.4rem;
-margin-bottom:10px;
-color:#c77dff;
-}
-
-.card p{
-color:#ccc;
 }
 
 /* VIDEO */
 
-.video-container{
-display:flex;
-justify-content:center;
-margin-bottom:60px;
-}
-
-.video-container iframe{
-width:800px;
-max-width:100%;
+.video-container iframe,
+.mmv-video iframe{
+width:100%;
 aspect-ratio:16/9;
 border-radius:18px;
-box-shadow:0 20px 60px rgba(180,0,255,.35);
 }
 
 /* MMV */
 
 .mmv-area{
 display:flex;
-align-items:center;
-justify-content:center;
 gap:60px;
 flex-wrap:wrap;
-margin-top:20px;
 }
 
-.mmv-video iframe{
-width:460px;
-max-width:100%;
-aspect-ratio:16/9;
-border-radius:18px;
-box-shadow:0 20px 60px rgba(180,0,255,.35);
+/* 🔥 RESPONSIVO MOBILE */
+
+@media (max-width:768px){
+
+header{
+padding:80px 15px 50px;
+transform:scale(1); /* remove zoom no mobile */
 }
 
-.mmv-text{
-max-width:380px;
-background:linear-gradient(160deg,#0b0010,#160020);
-padding:30px;
-border-radius:16px;
-border:1px solid rgba(180,0,255,.3);
-box-shadow:0 10px 35px rgba(180,0,255,.2);
+.logo{
+width:160px;
 }
 
-.mmv-text h3{
-color:#c77dff;
-margin-bottom:10px;
+header h1{
+font-size:2.2rem;
+letter-spacing:2px;
 }
 
-.mmv-text p{
-color:#ddd;
-line-height:1.6;
+header p{
+font-size:0.95rem;
 }
 
-/* CONTATO */
+/* MENU */
+nav a{
+display:inline-block;
+margin:8px 10px;
+font-size:0.9rem;
+}
 
-.contato{
+/* SEÇÕES */
+section{
+padding:60px 15px;
+}
+
+/* SOBRE */
+.sobre h2{
 text-align:center;
 }
 
-.contato a{
-display:inline-block;
-margin:15px;
-color:#b400ff;
-text-decoration:none;
-font-weight:bold;
+.sobre p{
+font-size:1rem;
+text-align:center;
 }
 
-/* FOOTER */
+/* MMV STACK */
+.mmv-area{
+flex-direction:column;
+gap:30px;
+}
+
+.mmv-text{
+text-align:center;
+}
+
+/* CARDS */
+.card{
+padding:25px;
+}
+
+}
 
 footer{
 text-align:center;
@@ -322,18 +250,15 @@ font-size:.9rem;
 
 </header>
 
-<!-- 🔥 AGORA COM REVEAL -->
 <section id="sobre" class="sobre reveal">
 <h2>Sobre</h2>
 <p>
-Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico…  
-mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
+Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer...
 </p>
 </section>
 
 <section id="trabalhos" class="reveal">
 <h2>Trabalhos</h2>
-
 <div class="projetos">
 
 <a href="#motion" class="card">
@@ -347,55 +272,42 @@ mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 </a>
 
 </div>
-
 </section>
 
 <section id="motion" class="reveal">
-
 <h2>Motion</h2>
 
 <div class="video-container">
-<iframe src="https://www.youtube.com/embed/Nt0ATOS8zdY" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/Nt0ATOS8zdY"></iframe>
 </div>
 
 <div class="mmv-area">
-
 <div class="mmv-video">
-<iframe src="https://www.youtube.com/embed/FMHsc-1dErc" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/FMHsc-1dErc"></iframe>
 </div>
 
 <div class="mmv-text">
-
-<h3>MMV (Manga Music Video)</h3>
-
-<p>
-Painéis de mangá editados no ritmo da música.
-</p>
-
+<h3>MMV</h3>
+<p>Painéis de mangá editados no ritmo da música.</p>
 </div>
-
 </div>
 
 </section>
 
 <section id="gameplay" class="reveal">
-
 <h2>Gameplay</h2>
-
 <div class="video-container">
-<iframe src="https://www.youtube.com/embed/UC_jB999HI8" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/UC_jB999HI8"></iframe>
 </div>
-
 </section>
 
 <section id="contato" class="contato reveal">
-
 <h2>Contato</h2>
 
-<a href="https://www.instagram.com/cal3ngo.editor/" target="_blank">Instagram</a>
-<a href="https://www.behance.net/cal3ngo" target="_blank">Behance</a>
-<a href="https://www.youtube.com/@cal3ngo" target="_blank">YouTube</a>
-<a href="https://discord.com/users/cal3ngao" target="_blank">Discord (cal3ngo)</a>
+<a href="#">Instagram</a>
+<a href="#">Behance</a>
+<a href="#">YouTube</a>
+<a href="#">Discord</a>
 
 </section>
 
@@ -411,9 +323,8 @@ var reveals=document.querySelectorAll(".reveal");
 for(var i=0;i<reveals.length;i++){
 var windowHeight=window.innerHeight;
 var elementTop=reveals[i].getBoundingClientRect().top;
-var elementVisible=120;
 
-if(elementTop<windowHeight-elementVisible){
+if(elementTop<windowHeight-100){
 reveals[i].classList.add("active");
 }
 }
@@ -423,8 +334,7 @@ function heroZoom(){
 const header = document.querySelector("header");
 
 let scroll = window.scrollY;
-let maxScroll = 120;
-let progress = Math.min(scroll / maxScroll, 1);
+let progress = Math.min(scroll / 120, 1);
 
 let scale = 1.06 - (progress * 0.06);
 
