@@ -2,10 +2,6 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-
-<!-- 🔥 RESPONSIVO -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cal3ngo | Editor & Motion Designer</title>
 
 <style>
@@ -58,6 +54,7 @@ z-index:-1;
 header{
 padding:120px 20px 80px;
 text-align:center;
+
 transform:scale(1.06);
 transition:transform 0.25s ease-out;
 will-change: transform;
@@ -151,9 +148,12 @@ margin:auto;
 padding:90px 20px;
 }
 
+/* 🔥 SOBRE AGORA CORRETO */
 #sobre{
 margin-top:40px;
 }
+
+/* reveal padrão */
 
 .reveal{
 opacity:0;
@@ -302,68 +302,6 @@ color:#888;
 font-size:.9rem;
 }
 
-/* 🔥 MOBILE PERFEITO (SEM QUEBRAR DESIGN) */
-
-@media (max-width:768px){
-
-header{
-padding:90px 15px 60px;
-transform:scale(1.03);
-}
-
-.logo{
-width:170px;
-}
-
-header h1{
-font-size:2.4rem;
-letter-spacing:2px;
-}
-
-header p{
-font-size:1rem;
-}
-
-/* menu bonito */
-nav{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-}
-
-nav a{
-margin:5px;
-font-size:0.9rem;
-}
-
-/* sobre */
-.sobre h2{
-text-align:center;
-}
-
-.sobre p{
-text-align:center;
-font-size:1rem;
-}
-
-/* mmv vira coluna */
-.mmv-area{
-flex-direction:column;
-gap:30px;
-}
-
-.mmv-text{
-text-align:center;
-}
-
-/* espaçamento melhor */
-section{
-padding:70px 15px;
-}
-
-}
-
 </style>
 </head>
 
@@ -384,6 +322,7 @@ padding:70px 15px;
 
 </header>
 
+<!-- 🔥 AGORA COM REVEAL -->
 <section id="sobre" class="sobre reveal">
 <h2>Sobre</h2>
 <p>
