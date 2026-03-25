@@ -54,10 +54,8 @@ z-index:-1;
 header{
 padding:120px 20px 80px;
 text-align:center;
-
 transform:scale(1.06);
 transition:transform 0.25s ease-out;
-will-change: transform;
 }
 
 .logo{
@@ -148,12 +146,9 @@ margin:auto;
 padding:90px 20px;
 }
 
-/* 🔥 SOBRE AGORA CORRETO */
 #sobre{
 margin-top:40px;
 }
-
-/* reveal padrão */
 
 .reveal{
 opacity:0;
@@ -279,18 +274,29 @@ color:#ddd;
 line-height:1.6;
 }
 
-/* CONTATO */
+/* CONTATO COM ÍCONES */
 
 .contato{
 text-align:center;
 }
 
-.contato a{
-display:inline-block;
-margin:15px;
-color:#b400ff;
-text-decoration:none;
-font-weight:bold;
+.social-icons{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.social-icons a img{
+width:55px;
+transition:0.3s;
+filter:drop-shadow(0 0 10px rgba(180,0,255,.4));
+}
+
+.social-icons a img:hover{
+transform:scale(1.15) translateY(-5px);
+filter:drop-shadow(0 0 20px rgba(180,0,255,.8));
 }
 
 /* FOOTER */
@@ -319,10 +325,8 @@ font-size:.9rem;
 <a href="#gameplay">Gameplay</a>
 <a href="#contato">Contato</a>
 </nav>
-
 </header>
 
-<!-- 🔥 AGORA COM REVEAL -->
 <section id="sobre" class="sobre reveal">
 <h2>Sobre</h2>
 <p>
@@ -335,7 +339,6 @@ mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 <h2>Trabalhos</h2>
 
 <div class="projetos">
-
 <a href="#motion" class="card">
 <h3>Motion</h3>
 <p>Motion graphics e animações.</p>
@@ -345,13 +348,11 @@ mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 <h3>Gameplay</h3>
 <p>Edições de gameplay com ritmo e humor.</p>
 </a>
-
 </div>
 
 </section>
 
 <section id="motion" class="reveal">
-
 <h2>Motion</h2>
 
 <div class="video-container">
@@ -359,27 +360,19 @@ mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 </div>
 
 <div class="mmv-area">
-
 <div class="mmv-video">
 <iframe src="https://www.youtube.com/embed/FMHsc-1dErc" allowfullscreen></iframe>
 </div>
 
 <div class="mmv-text">
-
 <h3>MMV (Manga Music Video)</h3>
-
-<p>
-Painéis de mangá editados no ritmo da música.
-</p>
-
+<p>Painéis de mangá editados no ritmo da música.</p>
 </div>
-
 </div>
 
 </section>
 
 <section id="gameplay" class="reveal">
-
 <h2>Gameplay</h2>
 
 <div class="video-container">
@@ -389,13 +382,27 @@ Painéis de mangá editados no ritmo da música.
 </section>
 
 <section id="contato" class="contato reveal">
-
 <h2>Contato</h2>
 
-<a href="https://www.instagram.com/cal3ngo.editor/" target="_blank">Instagram</a>
-<a href="https://www.behance.net/cal3ngo" target="_blank">Behance</a>
-<a href="https://www.youtube.com/@cal3ngo" target="_blank">YouTube</a>
-<a href="https://discord.com/users/cal3ngao" target="_blank">Discord (cal3ngo)</a>
+<div class="social-icons">
+
+<a href="https://www.instagram.com/cal3ngo.editor/" target="_blank">
+<img src="social-media.png">
+</a>
+
+<a href="https://www.behance.net/cal3ngo" target="_blank">
+<img src="behance.png">
+</a>
+
+<a href="https://www.youtube.com/@cal3ngo" target="_blank">
+<img src="youtube.png">
+</a>
+
+<a href="https://discord.com/users/cal3ngao" target="_blank">
+<img src="discord.png">
+</a>
+
+</div>
 
 </section>
 
