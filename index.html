@@ -274,7 +274,7 @@ color:#ddd;
 line-height:1.6;
 }
 
-/* CONTATO COM ÍCONES */
+/* CONTATO COM ÍCONES BRANCOS */
 
 .contato{
 text-align:center;
@@ -291,12 +291,16 @@ flex-wrap:wrap;
 .social-icons a img{
 width:55px;
 transition:0.3s;
-filter:drop-shadow(0 0 10px rgba(180,0,255,.4));
+
+/* ÍCONE BRANCO */
+filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(180,0,255,.4));
 }
 
 .social-icons a img:hover{
 transform:scale(1.15) translateY(-5px);
-filter:drop-shadow(0 0 20px rgba(180,0,255,.8));
+
+/* glow mais forte */
+filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(180,0,255,.8));
 }
 
 /* FOOTER */
