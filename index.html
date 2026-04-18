@@ -6,9 +6,7 @@
 
 <style>
 
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 *{
 margin:0;
@@ -25,7 +23,7 @@ overflow-x:hidden;
 cursor:none;
 }
 
-/* FUNDO PESADO */
+/* FUNDO OTIMIZADO */
 
 body::before{
 content:"";
@@ -33,59 +31,47 @@ position:fixed;
 inset:0;
 background:
 linear-gradient(rgba(0,0,0,0.92),rgba(0,0,0,0.98)),
-url("k.gif");
-background-size:cover;
-background-position:center;
-filter:grayscale(100%) contrast(140%) brightness(0.6);
+url("k.gif") center/cover no-repeat;
+filter:grayscale(100%) contrast(130%) brightness(0.7);
 z-index:-2;
 }
 
-/* GRAIN */
+/* GRAIN MAIS LEVE */
 
 body::after{
 content:"";
 position:fixed;
 inset:0;
 background:url("https://grainy-gradients.vercel.app/noise.svg");
-opacity:0.12;
+opacity:0.06;
 mix-blend-mode:overlay;
-animation:grainMove 0.3s steps(2) infinite;
 z-index:-1;
 pointer-events:none;
-}
-
-@keyframes grainMove{
-0%{transform:translate(0,0)}
-25%{transform:translate(-2%,2%)}
-50%{transform:translate(2%,-2%)}
-75%{transform:translate(-1%,1%)}
-100%{transform:translate(0,0)}
 }
 
 /* HEADER */
 
 header{
-padding:120px 20px 80px;
+padding:110px 20px 70px;
 text-align:center;
-transform:scale(1.06);
-transition:transform 0.25s ease-out;
 border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
+/* LOGO SEM FILTRO (COR ORIGINAL) */
+
 .logo{
 width:220px;
-filter:grayscale(100%) contrast(120%);
+margin-bottom:20px;
 }
 
-/* GLITCH TÍTULO */
+/* TÍTULO */
 
 header h1{
-position:relative;
-font-size:3.6rem;
-letter-spacing:8px;
-color:#fff;
-text-shadow:0 0 5px rgba(255,255,255,0.2);
+font-size:3.4rem;
+letter-spacing:7px;
 }
+
+/* GLITCH SUPER LEVE (OTIMIZADO) */
 
 header h1::before,
 header h1::after{
@@ -93,29 +79,15 @@ content:attr(data-text);
 position:absolute;
 left:0;
 top:0;
-width:100%;
-overflow:hidden;
+opacity:0.15;
 }
 
 header h1::before{
-opacity:0.5;
 transform:translate(1px,-1px);
-animation:glitch 3s infinite;
 }
 
 header h1::after{
-opacity:0.3;
 transform:translate(-1px,1px);
-animation:glitch 4s infinite;
-}
-
-@keyframes glitch{
-0%{clip-path:inset(0 0 0 0);}
-5%{clip-path:inset(10% 0 80% 0);}
-10%{clip-path:inset(85% 0 5% 0);}
-15%{clip-path:inset(40% 0 40% 0);}
-20%{clip-path:inset(0 0 0 0);}
-100%{clip-path:inset(0 0 0 0);}
 }
 
 header p{
@@ -126,68 +98,36 @@ color:#bbb;
 
 /* MENU */
 
-nav{
-margin-top:25px;
-}
+nav{margin-top:20px;}
 
 nav a{
 color:#888;
 margin:0 15px;
 text-decoration:none;
-font-weight:600;
+font-size:0.9rem;
 letter-spacing:2px;
-position:relative;
 }
 
-nav a:hover{
-color:#fff;
-}
-
-nav a::after{
-content:"";
-position:absolute;
-left:50%;
-bottom:-6px;
-width:0;
-height:1px;
-background:#fff;
-transition:.3s;
-transform:translateX(-50%);
-}
-
-nav a:hover::after{
-width:100%;
-}
+nav a:hover{color:#fff;}
 
 /* SEÇÕES */
 
 section{
 max-width:1000px;
 margin:auto;
-padding:80px 20px;
+padding:70px 20px;
 border-top:1px solid rgba(255,255,255,0.08);
 }
 
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:.8s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
 h2{
-font-size:2rem;
-margin-bottom:30px;
-letter-spacing:4px;
 text-align:center;
+margin-bottom:25px;
+letter-spacing:3px;
 }
 
 p{
-color:#e6e6e6;
+color:#ddd;
+line-height:1.6;
 }
 
 /* CARDS */
@@ -195,22 +135,19 @@ color:#e6e6e6;
 .projetos{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
+gap:20px;
 }
 
 .card{
-background:#050505;
-padding:25px;
-border:1px solid rgba(255,255,255,0.15);
-border-radius:4px;
-text-align:center;
-transition:.3s;
+background:#080808;
+padding:20px;
+border:1px solid rgba(255,255,255,0.12);
+border-radius:3px;
+transition:.2s;
 }
 
 .card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px rgba(255,255,255,0.1);
+transform:translateY(-4px);
 }
 
 /* VIDEO */
@@ -218,53 +155,47 @@ box-shadow:0 0 20px rgba(255,255,255,0.1);
 .video-container{
 display:flex;
 justify-content:center;
-margin-bottom:40px;
+margin-bottom:30px;
 }
 
-.video-container iframe{
+iframe{
 width:100%;
 max-width:700px;
 aspect-ratio:16/9;
-border-radius:4px;
+border:0;
 }
 
 /* CONTATO */
 
-.contato{
-text-align:center;
-}
-
 .social-icons{
 display:flex;
 justify-content:center;
-gap:20px;
-margin-top:20px;
+gap:18px;
+margin-top:15px;
 flex-wrap:wrap;
 }
 
 .social-icons img{
-width:50px;
-filter:grayscale(100%) brightness(1.2);
-transition:.3s;
+width:45px;
+filter:grayscale(100%);
+transition:.2s;
 }
 
 .social-icons img:hover{
-transform:scale(1.1);
+filter:grayscale(0%);
 }
 
-/* CURSOR SNIPER */
+/* CURSOR (MAIS LEVE) */
 
 .sniper-cursor{
 position:fixed;
-top:0;
-left:0;
-width:35px;
-height:35px;
-border:2px solid #fff;
+width:28px;
+height:28px;
+border:1.5px solid #fff;
 border-radius:50%;
 pointer-events:none;
-z-index:9999;
 transform:translate(-50%,-50%);
+z-index:9999;
 }
 
 .sniper-cursor::before,
@@ -275,14 +206,14 @@ background:#fff;
 }
 
 .sniper-cursor::before{
-width:2px;
+width:1px;
 height:100%;
 left:50%;
 transform:translateX(-50%);
 }
 
 .sniper-cursor::after{
-height:2px;
+height:1px;
 width:100%;
 top:50%;
 transform:translateY(-50%);
@@ -292,9 +223,9 @@ transform:translateY(-50%);
 
 footer{
 text-align:center;
-padding:30px;
-color:#888;
-font-size:0.9rem;
+padding:25px;
+color:#777;
+font-size:0.8rem;
 }
 
 </style>
@@ -304,8 +235,9 @@ font-size:0.9rem;
 
 <div class="sniper-cursor"></div>
 
-<header class="reveal">
+<header>
 <img src="oc.png" class="logo">
+
 <h1 data-text="CAL3NGO">CAL3NGO</h1>
 <p>Editor de Vídeo • Motion Designer</p>
 
@@ -318,32 +250,31 @@ font-size:0.9rem;
 </nav>
 </header>
 
-<section id="sobre" class="reveal">
+<section id="sobre">
 <h2>Sobre</h2>
 <p>
-Sou Cal3ngo, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico,
-mas também trabalho com vídeos mais caóticos quando a ideia pede.
+Sou Cal3ngo, editor de vídeo e motion designer. Faço edições com estilo forte, ritmo e impacto.
 </p>
 </section>
 
-<section id="trabalhos" class="reveal">
+<section id="trabalhos">
 <h2>Trabalhos</h2>
 
 <div class="projetos">
 <a href="#motion" class="card">
 <h3>Motion</h3>
-<p>Motion graphics e animações.</p>
+<p>Motion graphics.</p>
 </a>
 
 <a href="#gameplay" class="card">
 <h3>Gameplay</h3>
-<p>Edições com ritmo e impacto.</p>
+<p>Edições dinâmicas.</p>
 </a>
 </div>
 
 </section>
 
-<section id="motion" class="reveal">
+<section id="motion">
 <h2>Motion</h2>
 
 <div class="video-container">
@@ -352,7 +283,7 @@ mas também trabalho com vídeos mais caóticos quando a ideia pede.
 
 </section>
 
-<section id="gameplay" class="reveal">
+<section id="gameplay">
 <h2>Gameplay</h2>
 
 <div class="video-container">
@@ -361,7 +292,7 @@ mas também trabalho com vídeos mais caóticos quando a ideia pede.
 
 </section>
 
-<section id="contato" class="contato reveal">
+<section id="contato">
 <h2>Contato</h2>
 
 <div class="social-icons">
@@ -392,61 +323,13 @@ mas também trabalho com vídeos mais caóticos quando a ideia pede.
 
 <script>
 
-/* ZOOM HEADER */
-
-function heroZoom(){
-const header = document.querySelector("header");
-
-let scroll = window.scrollY;
-let progress = Math.min(scroll / 120, 1);
-
-header.style.transform = `scale(${1.06 - (progress * 0.06)})`;
-}
-
-window.addEventListener("scroll", heroZoom);
-
-/* REVEAL */
-
-function revealScroll(){
-document.querySelectorAll(".reveal").forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight - 80){
-el.classList.add("active");
-}
-});
-}
-
-window.addEventListener("scroll", revealScroll);
-revealScroll();
-
-/* CURSOR */
+/* CURSOR OTIMIZADO */
 
 const cursor = document.querySelector(".sniper-cursor");
 
-let mx=0,my=0,x=0,y=0;
-
-document.addEventListener("mousemove",e=>{
-mx=e.clientX;
-my=e.clientY;
-});
-
-function loop(){
-x += (mx-x)*0.15;
-y += (my-y)*0.15;
-
-cursor.style.left=x+"px";
-cursor.style.top=y+"px";
-
-requestAnimationFrame(loop);
-}
-
-loop();
-
-document.addEventListener("mousedown",()=>{
-cursor.style.transform="translate(-50%,-50%) scale(0.8)";
-});
-
-document.addEventListener("mouseup",()=>{
-cursor.style.transform="translate(-50%,-50%) scale(1)";
+document.addEventListener("mousemove", e=>{
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
 });
 
 </script>
