@@ -14,39 +14,52 @@ scroll-behavior:smooth;
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',Arial,sans-serif;
+font-family:Arial, sans-serif;
 }
 
 body{
 min-height:100vh;
-color:#f5f5f5;
+background:#000;
+color:#fff;
 overflow-x:hidden;
-position:relative;
+cursor:none;
 }
 
-/* FUNDO */
+/* FUNDO PESADO */
 
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(5,0,10,0.75),rgba(5,0,10,0.9)),
+linear-gradient(rgba(0,0,0,0.92),rgba(0,0,0,0.98)),
 url("k.gif");
 background-size:cover;
 background-position:center;
-background-attachment:fixed;
+filter:grayscale(100%) contrast(140%) brightness(0.6);
 z-index:-2;
 }
+
+/* GRAIN */
 
 body::after{
 content:"";
 position:fixed;
 inset:0;
-background:radial-gradient(circle at top,
-rgba(140,0,255,0.35),
-rgba(0,0,0,0.85));
+background:url("https://grainy-gradients.vercel.app/noise.svg");
+opacity:0.12;
+mix-blend-mode:overlay;
+animation:grainMove 0.3s steps(2) infinite;
 z-index:-1;
+pointer-events:none;
+}
+
+@keyframes grainMove{
+0%{transform:translate(0,0)}
+25%{transform:translate(-2%,2%)}
+50%{transform:translate(2%,-2%)}
+75%{transform:translate(-1%,1%)}
+100%{transform:translate(0,0)}
 }
 
 /* HEADER */
@@ -56,55 +69,59 @@ padding:120px 20px 80px;
 text-align:center;
 transform:scale(1.06);
 transition:transform 0.25s ease-out;
+border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .logo{
-width:230px;
-margin:0 auto 20px;
-filter:drop-shadow(0 0 45px rgba(160,60,255,.7));
-animation:float 6s ease-in-out infinite;
+width:220px;
+filter:grayscale(100%) contrast(120%);
 }
 
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-12px);}
-100%{transform:translateY(0);}
-}
+/* GLITCH TÍTULO */
 
 header h1{
-font-size:3.4rem;
-letter-spacing:4px;
-background:linear-gradient(90deg,#ff2a2a,#b400ff,#ff2a2a);
-background-size:200%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:gradientMove 6s linear infinite, glowPulse 3s ease-in-out infinite;
+position:relative;
+font-size:3.6rem;
+letter-spacing:8px;
+color:#fff;
+text-shadow:0 0 5px rgba(255,255,255,0.2);
 }
 
-@keyframes gradientMove{
-0%{background-position:0%;}
-100%{background-position:200%;}
+header h1::before,
+header h1::after{
+content:attr(data-text);
+position:absolute;
+left:0;
+top:0;
+width:100%;
+overflow:hidden;
 }
 
-@keyframes glowPulse{
-0%{
-text-shadow:0 0 10px rgba(255,0,100,0.4),
-0 0 20px rgba(180,0,255,0.3);
+header h1::before{
+opacity:0.5;
+transform:translate(1px,-1px);
+animation:glitch 3s infinite;
 }
-50%{
-text-shadow:0 0 25px rgba(255,0,100,0.7),
-0 0 45px rgba(180,0,255,0.6);
+
+header h1::after{
+opacity:0.3;
+transform:translate(-1px,1px);
+animation:glitch 4s infinite;
 }
-100%{
-text-shadow:0 0 10px rgba(255,0,100,0.4),
-0 0 20px rgba(180,0,255,0.3);
-}
+
+@keyframes glitch{
+0%{clip-path:inset(0 0 0 0);}
+5%{clip-path:inset(10% 0 80% 0);}
+10%{clip-path:inset(85% 0 5% 0);}
+15%{clip-path:inset(40% 0 40% 0);}
+20%{clip-path:inset(0 0 0 0);}
+100%{clip-path:inset(0 0 0 0);}
 }
 
 header p{
 margin-top:10px;
-font-size:1.1rem;
-color:#d1d1d1;
+font-size:1rem;
+color:#bbb;
 }
 
 /* MENU */
@@ -114,23 +131,27 @@ margin-top:25px;
 }
 
 nav a{
-color:#f5f5f5;
-margin:0 18px;
+color:#888;
+margin:0 15px;
 text-decoration:none;
 font-weight:600;
-letter-spacing:1px;
+letter-spacing:2px;
 position:relative;
+}
+
+nav a:hover{
+color:#fff;
 }
 
 nav a::after{
 content:"";
 position:absolute;
 left:50%;
-bottom:-8px;
+bottom:-6px;
 width:0;
-height:2px;
-background:linear-gradient(90deg,#ff2a2a,#b400ff);
-transition:.35s;
+height:1px;
+background:#fff;
+transition:.3s;
 transform:translateX(-50%);
 }
 
@@ -141,18 +162,15 @@ width:100%;
 /* SEÇÕES */
 
 section{
-max-width:1100px;
+max-width:1000px;
 margin:auto;
-padding:90px 20px;
-}
-
-#sobre{
-margin-top:40px;
+padding:80px 20px;
+border-top:1px solid rgba(255,255,255,0.08);
 }
 
 .reveal{
-opacity:1;
-transform:translateY(0);
+opacity:0;
+transform:translateY(40px);
 transition:.8s;
 }
 
@@ -162,62 +180,37 @@ transform:translateY(0);
 }
 
 h2{
-font-size:2.2rem;
-margin-bottom:40px;
+font-size:2rem;
+margin-bottom:30px;
+letter-spacing:4px;
 text-align:center;
-background:linear-gradient(90deg,#ff2a2a,#b400ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 }
 
-/* SOBRE */
-
-.sobre h2{
-text-align:left;
-}
-
-.sobre p{
-max-width:800px;
-font-size:1.1rem;
-color:#e0e0e0;
-text-align:left;
+p{
+color:#e6e6e6;
 }
 
 /* CARDS */
 
 .projetos{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-margin-top:40px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:30px;
 }
 
 .card{
-display:block;
-text-decoration:none;
-color:inherit;
-background:linear-gradient(160deg,#0b0010,#120000);
-padding:35px;
-border-radius:18px;
-border:1px solid rgba(160,60,255,.2);
-transition:.35s;
+background:#050505;
+padding:25px;
+border:1px solid rgba(255,255,255,0.15);
+border-radius:4px;
 text-align:center;
-cursor:pointer;
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 45px rgba(160,60,255,.35);
-}
-
-.card h3{
-font-size:1.4rem;
-margin-bottom:10px;
-color:#c77dff;
-}
-
-.card p{
-color:#ccc;
+transform:translateY(-5px);
+box-shadow:0 0 20px rgba(255,255,255,0.1);
 }
 
 /* VIDEO */
@@ -225,15 +218,14 @@ color:#ccc;
 .video-container{
 display:flex;
 justify-content:center;
-margin-bottom:60px;
+margin-bottom:40px;
 }
 
 .video-container iframe{
-width:800px;
-max-width:100%;
+width:100%;
+max-width:700px;
 aspect-ratio:16/9;
-border-radius:18px;
-box-shadow:0 20px 60px rgba(180,0,255,.35);
+border-radius:4px;
 }
 
 /* CONTATO */
@@ -245,29 +237,64 @@ text-align:center;
 .social-icons{
 display:flex;
 justify-content:center;
-gap:25px;
+gap:20px;
 margin-top:20px;
 flex-wrap:wrap;
 }
 
-.social-icons a img{
-width:55px;
-transition:0.3s;
-filter: brightness(0) saturate(100%) invert(66%) sepia(77%) saturate(748%) hue-rotate(230deg) brightness(100%) contrast(101%) drop-shadow(0 0 10px rgba(199,125,255,.6));
+.social-icons img{
+width:50px;
+filter:grayscale(100%) brightness(1.2);
+transition:.3s;
 }
 
-.social-icons a img:hover{
-transform:scale(1.15) translateY(-5px);
-filter: brightness(0) saturate(100%) invert(66%) sepia(77%) saturate(748%) hue-rotate(230deg) brightness(120%) contrast(110%) drop-shadow(0 0 25px rgba(199,125,255,1));
+.social-icons img:hover{
+transform:scale(1.1);
+}
+
+/* CURSOR SNIPER */
+
+.sniper-cursor{
+position:fixed;
+top:0;
+left:0;
+width:35px;
+height:35px;
+border:2px solid #fff;
+border-radius:50%;
+pointer-events:none;
+z-index:9999;
+transform:translate(-50%,-50%);
+}
+
+.sniper-cursor::before,
+.sniper-cursor::after{
+content:"";
+position:absolute;
+background:#fff;
+}
+
+.sniper-cursor::before{
+width:2px;
+height:100%;
+left:50%;
+transform:translateX(-50%);
+}
+
+.sniper-cursor::after{
+height:2px;
+width:100%;
+top:50%;
+transform:translateY(-50%);
 }
 
 /* FOOTER */
 
 footer{
 text-align:center;
-padding:35px;
+padding:30px;
 color:#888;
-font-size:.9rem;
+font-size:0.9rem;
 }
 
 </style>
@@ -275,9 +302,11 @@ font-size:.9rem;
 
 <body>
 
+<div class="sniper-cursor"></div>
+
 <header class="reveal">
 <img src="oc.png" class="logo">
-<h1>CAL3NGO</h1>
+<h1 data-text="CAL3NGO">CAL3NGO</h1>
 <p>Editor de Vídeo • Motion Designer</p>
 
 <nav>
@@ -289,11 +318,11 @@ font-size:.9rem;
 </nav>
 </header>
 
-<section id="sobre" class="sobre reveal">
+<section id="sobre" class="reveal">
 <h2>Sobre</h2>
 <p>
-Sou <strong>Cal3ngo</strong>, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico…  
-mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
+Sou Cal3ngo, editor de vídeo e motion designer. Faço edições com estilo forte, animações e ritmo cinematográfico,
+mas também trabalho com vídeos mais caóticos quando a ideia pede.
 </p>
 </section>
 
@@ -308,7 +337,7 @@ mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 
 <a href="#gameplay" class="card">
 <h3>Gameplay</h3>
-<p>Edições de gameplay com ritmo e humor.</p>
+<p>Edições com ritmo e impacto.</p>
 </a>
 </div>
 
@@ -363,20 +392,62 @@ mas também mando uns vídeos mais caóticos e engraçados quando a ideia pede.
 
 <script>
 
+/* ZOOM HEADER */
+
 function heroZoom(){
 const header = document.querySelector("header");
 
 let scroll = window.scrollY;
-let maxScroll = 120;
-let progress = Math.min(scroll / maxScroll, 1);
+let progress = Math.min(scroll / 120, 1);
 
-let scale = 1.06 - (progress * 0.06);
-
-header.style.transform = `scale(${scale})`;
+header.style.transform = `scale(${1.06 - (progress * 0.06)})`;
 }
 
 window.addEventListener("scroll", heroZoom);
-heroZoom();
+
+/* REVEAL */
+
+function revealScroll(){
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight - 80){
+el.classList.add("active");
+}
+});
+}
+
+window.addEventListener("scroll", revealScroll);
+revealScroll();
+
+/* CURSOR */
+
+const cursor = document.querySelector(".sniper-cursor");
+
+let mx=0,my=0,x=0,y=0;
+
+document.addEventListener("mousemove",e=>{
+mx=e.clientX;
+my=e.clientY;
+});
+
+function loop(){
+x += (mx-x)*0.15;
+y += (my-y)*0.15;
+
+cursor.style.left=x+"px";
+cursor.style.top=y+"px";
+
+requestAnimationFrame(loop);
+}
+
+loop();
+
+document.addEventListener("mousedown",()=>{
+cursor.style.transform="translate(-50%,-50%) scale(0.8)";
+});
+
+document.addEventListener("mouseup",()=>{
+cursor.style.transform="translate(-50%,-50%) scale(1)";
+});
 
 </script>
 
