@@ -2,11 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Cal3ngo | Editor & Motion Designer</title>
+<title>Cal3ngo | Editor</title>
 
 <style>
-
-html{scroll-behavior:smooth;}
 
 *{
 margin:0;
@@ -16,34 +14,33 @@ font-family:Arial, sans-serif;
 }
 
 body{
-min-height:100vh;
 background:#000;
-color:#fff;
+color:#e5e5e5;
 overflow-x:hidden;
 cursor:none;
 }
 
-/* FUNDO OTIMIZADO */
+/* FUNDO FILME DE GUERRA */
 
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,0.92),rgba(0,0,0,0.98)),
+linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),
 url("k.gif") center/cover no-repeat;
-filter:grayscale(100%) contrast(130%) brightness(0.7);
+filter:grayscale(100%) contrast(120%) brightness(0.7);
 z-index:-2;
 }
 
-/* GRAIN MAIS LEVE */
+/* GRAIN SUAVE */
 
 body::after{
 content:"";
 position:fixed;
 inset:0;
 background:url("https://grainy-gradients.vercel.app/noise.svg");
-opacity:0.06;
+opacity:0.1;
 mix-blend-mode:overlay;
 z-index:-1;
 pointer-events:none;
@@ -52,102 +49,95 @@ pointer-events:none;
 /* HEADER */
 
 header{
-padding:110px 20px 70px;
 text-align:center;
-border-bottom:1px solid rgba(255,255,255,0.1);
+padding:120px 20px 80px;
 }
 
-/* LOGO SEM FILTRO (COR ORIGINAL) */
+/* LOGO DESTACADA */
 
 .logo{
-width:220px;
-margin-bottom:20px;
+width:230px;
+margin-bottom:25px;
+
+/* destaque real */
+filter:
+drop-shadow(0 0 25px rgba(0,0,0,0.9))
+contrast(110%)
+brightness(1.05);
 }
 
 /* TÍTULO */
 
-header h1{
-font-size:3.4rem;
-letter-spacing:7px;
+h1{
+font-size:3.2rem;
+letter-spacing:6px;
+color:#f2f2f2;
 }
 
-/* GLITCH SUPER LEVE (OTIMIZADO) */
-
-header h1::before,
-header h1::after{
-content:attr(data-text);
-position:absolute;
-left:0;
-top:0;
-opacity:0.15;
-}
-
-header h1::before{
-transform:translate(1px,-1px);
-}
-
-header h1::after{
-transform:translate(-1px,1px);
-}
+/* TEXTO */
 
 header p{
 margin-top:10px;
+color:#bfbfbf;
 font-size:1rem;
-color:#bbb;
 }
 
 /* MENU */
 
-nav{margin-top:20px;}
-
-nav a{
-color:#888;
-margin:0 15px;
-text-decoration:none;
-font-size:0.9rem;
-letter-spacing:2px;
+nav{
+margin-top:25px;
 }
 
-nav a:hover{color:#fff;}
+nav a{
+color:#9a9a9a;
+margin:0 15px;
+text-decoration:none;
+letter-spacing:2px;
+font-size:0.9rem;
+}
+
+nav a:hover{
+color:#fff;
+}
 
 /* SEÇÕES */
 
 section{
-max-width:1000px;
+max-width:900px;
 margin:auto;
 padding:70px 20px;
-border-top:1px solid rgba(255,255,255,0.08);
+border-top:1px solid rgba(255,255,255,0.06);
 }
 
 h2{
 text-align:center;
 margin-bottom:25px;
 letter-spacing:3px;
+color:#eaeaea;
 }
 
 p{
-color:#ddd;
 line-height:1.6;
+color:#d0d0d0;
 }
 
 /* CARDS */
 
 .projetos{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
 }
 
 .card{
-background:#080808;
+background:#0a0a0a;
+border:1px solid rgba(255,255,255,0.1);
 padding:20px;
-border:1px solid rgba(255,255,255,0.12);
-border-radius:3px;
 transition:.2s;
 }
 
 .card:hover{
-transform:translateY(-4px);
+transform:translateY(-3px);
 }
 
 /* VIDEO */
@@ -185,13 +175,13 @@ transition:.2s;
 filter:grayscale(0%);
 }
 
-/* CURSOR (MAIS LEVE) */
+/* CURSOR */
 
 .sniper-cursor{
 position:fixed;
-width:28px;
-height:28px;
-border:1.5px solid #fff;
+width:26px;
+height:26px;
+border:1px solid #fff;
 border-radius:50%;
 pointer-events:none;
 transform:translate(-50%,-50%);
@@ -238,7 +228,7 @@ font-size:0.8rem;
 <header>
 <img src="oc.png" class="logo">
 
-<h1 data-text="CAL3NGO">CAL3NGO</h1>
+<h1>CAL3NGO</h1>
 <p>Editor de Vídeo • Motion Designer</p>
 
 <nav>
@@ -253,7 +243,7 @@ font-size:0.8rem;
 <section id="sobre">
 <h2>Sobre</h2>
 <p>
-Sou Cal3ngo, editor de vídeo e motion designer. Faço edições com estilo forte, ritmo e impacto.
+Sou Cal3ngo, editor de vídeo e motion designer. Faço edições com estilo forte e ritmo cinematográfico.
 </p>
 </section>
 
@@ -323,7 +313,7 @@ Sou Cal3ngo, editor de vídeo e motion designer. Faço edições com estilo fort
 
 <script>
 
-/* CURSOR OTIMIZADO */
+/* CURSOR */
 
 const cursor = document.querySelector(".sniper-cursor");
 
